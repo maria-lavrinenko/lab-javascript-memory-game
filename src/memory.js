@@ -12,7 +12,12 @@ class MemoryGame {
 
     if (!this.cards) {
       return undefined;
-    } else {
+    }
+
+    // alternative :
+    // this.cards.sort( () => Math.random() - 0.5)
+    // return this.cards
+    else {
       for (let i = this.cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
@@ -26,7 +31,7 @@ class MemoryGame {
     this.pairsClicked++;
     if (card1 === card2) {
       this.pairsGuessed++;
-      document.querySelector("#pairs-guessed").textContent = this.pairsGuessed;
+      // document.querySelector("#pairs-guessed").textContent = this.pairsGuessed;
       return true;
     } else {
       return false;
@@ -40,4 +45,5 @@ class MemoryGame {
     }
     return false;
   }
+  // return this.pairsGuessed === (this.cards.length / 2)
 }
